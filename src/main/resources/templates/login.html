@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+  </style>
+</head>
+<body>
+
+  <h3>Login to the Help Desk</h3>
+
+  <form th:action="@{/login-process}" method="post" th:object="${userDto}">
+
+      <label for="email">User name:</label>
+      <input type="text" id="email" name="email" th:field="*{email}">
+      <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error error</div>
+      <br>
+      <br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" th:field="*{password}">
+      <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error error</div>
+      <br>
+      <br>
+
+<!--      <div style="color:red" th:if="${#fields.hasErrors('blank')}" th:errors="*{blank}">Email error error</div>-->
+
+<!--      <div th:if="${param.error}" style="color: red" class="error">-->
+<!--          <p>NO VALID DATA</p>-->
+<!--      </div>-->
+
+      <button type="submit">Login</button>
+
+  </form>
+
+
+</body>
+</html>
+
+
+
+</body>
+</html>

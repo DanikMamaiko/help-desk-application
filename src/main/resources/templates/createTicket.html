@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <div th:insert="~{fragment :: header}"></div>
+  <input type="button" value="Ticket List" class="register-link" onclick="window.location.href='/allTickets'" />
+
+  <h1>Create new Ticket</h1>
+
+  <form th:action="saveTicket" th:method="POST" th:object="${ticket}">
+
+    <label for="category">Select a Category:</label>
+    <select id="category" name="category" th:field="*{category.id}">
+      <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+    </select>
+    <br><br>
+
+    <label for="name">Name:</label>
+    <input type="text" th:field="*{name}" id="name" />
+    <br><br>
+
+    <label for="description">Description:</label>
+    <input type="text" th:field="*{description}" id="description" />
+    <br><br>
+
+    <label for="urgency">Urgency:</label>
+    <select name="urgency" id="urgency">
+      <option th:each="urgency : ${urgencies}" th:text="${urgency}"></option>
+    </select>
+    <br><br>
+
+    <label for="date">Desired resolution date:</label>
+    <input type="date" th:field="*{desired_resolution_date}" id="date" />
+    <br><br>
+
+    <p>Add attachments:</p>
+    <input type="button" value="Browse" class="register-link" onclick="window.location.href='/ticketOverview'" />
+    <br><br>
+
+    <label for="comment">Comment:</label>
+    <input type="text" id="comment" />
+    <br><br>
+
+    <input type="button"  value="Save as Draft" class="register-link" onclick="window.location.href='/ticketOverview'" />
+    <input type="submit" value="Submit" />
+</form>
+
+
+
+</body>
+</html>

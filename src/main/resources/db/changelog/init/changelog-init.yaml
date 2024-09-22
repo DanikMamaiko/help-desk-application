@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: init-changelog
+      author: daniil.mamaiko@innowise.com
+      changes:
+        - tagDatabase:
+            tag: init

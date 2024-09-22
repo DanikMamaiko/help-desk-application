@@ -1,0 +1,57 @@
+server:
+  port: 8181
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          client-id: springsecurity
+          issuer-uri: http://${KEYCLOAK_HOST:localhost}:${KEYCLOAK_PORT:8080}/realms/${KEYCLOAK_REALM:helptask}
+
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://${KEYCLOAK_HOST:localhost}:${KEYCLOAK_PORT:8080}/realms/${KEYCLOAK_REALM:helptask}
+            user-name-attribute: preferred_username
+
+        registration:
+          keycloak:
+            client-id: springsecurity
+            client-secret: 130SEMvf2yGtWvpRyPSFnLF808wA654i
+            client-name: springsecurity
+            authorization-grant-type: authorization_code
+            scope: openid
+
+  application:
+    name: ordersinternship
+
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:helpdesk}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: validate
+      dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+  liquibase:
+    change-log: db/changelog/db.changelog-master.yaml
+    enabled: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+
+
+#spring.jpa.properties.hibernate.id.new_generator_mappings=false
+#spring.sql.init.mode=always
+#spring.jpa.defer-datasource-initialization=true
+

@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-comment-table
+      author: daniil.mamaiko@innowise.com
+      comment: create-comment-table
+      changes:
+        - tagDatabase:
+            tag: create-comment-table
+        - sqlFile:
+            path: db/changelog/v-1.0/sql/06-create-comment-table.sql
+      rollback:
+        - sqlFile:
+            path: db/changelog/v-1.0/sql/rollback/06-drop-comment-table.sql

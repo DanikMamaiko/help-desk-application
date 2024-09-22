@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-category-table
+      author: daniil.mamaiko@innowise.com
+      comment: create-category-table
+      changes:
+        - tagDatabase:
+            tag: create-category-table
+        - sqlFile:
+            path: db/changelog/v-1.0/sql/02-create-category-table.sql
+      rollback:
+        - sqlFile:
+            path: db/changelog/v-1.0/sql/rollback/02-drop-category-table.sql

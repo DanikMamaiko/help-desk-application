@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changesets/create-changeset-all-tables.yml
+  - include:
+      file: db/changelog/changesets/insert-changeset-user-table-employee.yml
+  - include:
+      file: db/changelog/changesets/insert-changeset-user-table-manager.yml
+  - include:
+      file: db/changelog/changesets/insert-changeset-user-table-engineer.yml
+  - include:
+      file: db/changelog/changesets/insert-changeset-dataInAllTables.yml

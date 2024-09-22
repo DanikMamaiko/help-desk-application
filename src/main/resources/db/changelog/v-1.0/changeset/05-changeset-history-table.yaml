@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-history-table
+      author: daniil.mamaiko@innowise.com
+      comment: create-history-table
+      changes:
+        - tagDatabase:
+            tag: create-history-table
+        - sqlFile:
+            path: db/changelog/v-1.0/sql/05-create-history-table.sql
+      rollback:
+        - sqlFile:
+            path: db/changelog/v-1.0/sql/rollback/05-drop-history-table.sql

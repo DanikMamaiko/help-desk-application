@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 10
+      author: danikmamaiko
+      comment: INSERT DATA INTO Attachment table
+      changes:
+        - insert:
+            tableName: attachment
+            columns:
+              - column:
+                  name: blobb
+                  value: firstAttachmentBlobb
+              - column:
+                  name: ticket_id
+                  value: 1
+              - column:
+                  name: name
+                  value: firstAttachmentName

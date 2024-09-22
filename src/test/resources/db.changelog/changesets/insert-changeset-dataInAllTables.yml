@@ -1,0 +1,124 @@
+databaseChangeLog:
+  - changeSet:
+      id: 8
+      author: danikmamaiko
+      comment: INSERT DATA INTO Category table
+      changes:
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: firstCategory
+
+  - changeSet:
+      id: 9
+      author: danikmamaiko
+      comment: INSERT DATA INTO Ticket table
+      changes:
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: name
+                  value: ticketName
+              - column:
+                  name: description
+                  value: ticketDescription
+              - column:
+                  name: assignee_id
+                  value: 3
+              - column:
+                  name: owner_id
+                  value: 1
+              - column:
+                  name: state_id
+                  value: NEW
+              - column:
+                  name: category_id
+                  value: 1
+              - column:
+                  name: urgency_id
+                  value: AVERAGE
+              - column:
+                  name: approver_id
+                  value: 5
+
+
+  - changeSet:
+      id: 10
+      author: danikmamaiko
+      comment: INSERT DATA INTO Attachment table
+      changes:
+        - insert:
+            tableName: attachment
+            columns:
+              - column:
+                  name: blobb
+                  value: firstAttachmentBlobb
+              - column:
+                  name: ticket_id
+                  value: 1
+              - column:
+                  name: name
+                  value: firstAttachmentName
+
+  - changeSet:
+      id: 11
+      author: danikmamaiko
+      comment: INSERT DATA INTO History table
+      changes:
+        - insert:
+            tableName: history
+            columns:
+              - column:
+                  name: ticket_id
+                  value: 1
+              - column:
+                  name: action
+                  value: INPROGRESS
+              - column:
+                  name: user_id
+                  value: 2
+              - column:
+                  name: description
+                  value: historyDescription
+
+  - changeSet:
+      id: 12
+      author: danikmamaiko
+      comment: INSERT DATA INTO Comment table
+      changes:
+        - insert:
+            tableName: comment
+            columns:
+              - column:
+                  name: user_id
+                  value: 2
+              - column:
+                  name: text
+                  value: commentText
+              - column:
+                  name: ticket_id
+                  value: 1
+
+  - changeSet:
+      id: 13
+      author: danikmamaiko
+      comment: INSERT DATA INTO Feedback table
+      changes:
+        - insert:
+            tableName: feedback
+            columns:
+              - column:
+                  name: user_id
+                  value: 2
+              - column:
+                  name: rate
+                  value: 5
+              - column:
+                  name: text
+                  value: feedbackText
+              - column:
+                  name: ticket_id
+                  value: 1

@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 13
+      author: danikmamaiko
+      comment: INSERT DATA INTO Feedback table
+      changes:
+        - insert:
+            tableName: feedback
+            columns:
+              - column:
+                  name: user_id
+                  value: 2
+              - column:
+                  name: rate
+                  value: 5
+              - column:
+                  name: text
+                  value: feedbackText
+              - column:
+                  name: ticket_id
+                  value: 1

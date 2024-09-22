@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-table
+      author: daniil.mamaiko@innowise.com
+      comment: create-user-table
+      changes:
+        - tagDatabase:
+            tag: create-user-table
+        - sqlFile:
+            path: db/changelog/v-1.0/sql/01-create-user-table.sql
+      rollback:
+        - sqlFile:
+            path: db/changelog/v-1.0/sql/rollback/01-drop-user-table.sql

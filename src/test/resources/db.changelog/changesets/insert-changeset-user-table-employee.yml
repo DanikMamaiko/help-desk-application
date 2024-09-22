@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: danikmamaiko
+      comment: "Insert Data into User Table"
+      changes:
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: first_name
+                  value: "Danik"
+              - column:
+                  name: last_name
+                  value: "Mamaiko"
+              - column:
+                  name: role_id
+                  value: EMPLOYEE
+              - column:
+                  name: email
+                  value: "user1_mogilev@yopmail.com"
+              - column:
+                  name: password
+                  value: "P@ssword1"
+  - changeSet:
+      id: 3
+      author: danikmamaiko
+      comment: "Insert Data into User Table (Continued)"
+      changes:
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: first_name
+                  value: "Ivan"
+              - column:
+                  name: last_name
+                  value: "Borisov"
+              - column:
+                  name: role_id
+                  value: EMPLOYEE
+              - column:
+                  name: email
+                  value: "user2_mogilev@yopmail.com"
+              - column:
+                  name: password
+                  value: "P@ssword1"

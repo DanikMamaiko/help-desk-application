@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 8
+      author: danikmamaiko
+      comment: INSERT DATA INTO Category table
+      changes:
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: firstCategory

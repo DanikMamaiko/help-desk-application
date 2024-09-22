@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 11
+      author: danikmamaiko
+      comment: INSERT DATA INTO History table
+      changes:
+        - insert:
+            tableName: history
+            columns:
+              - column:
+                  name: ticket_id
+                  value: 1
+              - column:
+                  name: action
+                  value: INPROGRESS
+              - column:
+                  name: user_id
+                  value: 2
+              - column:
+                  name: description
+                  value: historyDescription

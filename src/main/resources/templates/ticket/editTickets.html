@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+
+  <input type="button" value="Ticket Overview" class="register-link" onclick="window.location.href='allTickets'" />
+  <h1>Edit Ticket</h1>
+
+  <form th:action="saveTicket" th:method="POST" th:object="${ticket}">
+
+    <label for="category">Category:</label>
+    <select name="name" id="category">
+      <option th:each="category : ${categories}" th:text="${category}"></option>
+    </select>
+    <br><br>
+
+    <label for="name">Name:</label>
+    <input type="text" th:field="*{name}" id="name" />
+    <br><br>
+
+    <label for="description">Description:</label>
+    <input type="text" th:field="*{description}" id="description" />
+    <br><br>
+
+    <label for="urgency">Urgency:</label>
+    <select name="urgency" id="urgency">
+      <option th:each="urgency : ${urgencies}" th:text="${urgency}"></option>
+    </select>
+    <br><br>
+
+    <label for="date">Desired resolution date:</label>
+    <input type="text" th:field="*{desired_resolution_date}" id="date" />
+    <br><br>
+
+    <!--  <label for="attachment">Add attachments:</label>-->
+    <!--  <input type="text" th:field="*{attachment}" id="attachment" />-->
+    <!--  <br><br>-->
+
+    <!--  <label for="comment">Comment:</label>-->
+    <!--  <input type="text" th:field="*{comment}" id="comment" />-->
+    <!--  <br><br>-->
+
+    <input type="submit" value="Save as Draft" />
+    <input type="submit" value="Submit" />
+
+</body>
+</html>

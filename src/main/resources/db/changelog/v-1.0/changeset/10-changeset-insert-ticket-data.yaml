@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 9
+      author: danikmamaiko
+      comment: INSERT DATA INTO Ticket table
+      changes:
+        - insert:
+            tableName: ticket
+            columns:
+              - column:
+                  name: name
+                  value: ticketName
+              - column:
+                  name: description
+                  value: ticketDescription
+              - column:
+                  name: assignee_id
+                  value: 3
+              - column:
+                  name: owner_id
+                  value: 1
+              - column:
+                  name: state_id
+                  value: NEW
+              - column:
+                  name: category_id
+                  value: 1
+              - column:
+                  name: urgency_id
+                  value: AVERAGE
+              - column:
+                  name: approver_id
+                  value: 5

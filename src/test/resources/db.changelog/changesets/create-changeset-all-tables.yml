@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: danikmamaiko
+      comment: "Create tables"
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: db/changelog/sqlTables/schema.sql
+

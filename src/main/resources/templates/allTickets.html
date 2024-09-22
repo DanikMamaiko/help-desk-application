@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        #allTicketSection, #myTicketSection {
+            display: none;
+        }
+
+        .button-container button.active-button {
+            background-color: blue; /* Измените цвет фона на желаемый */
+            color: white; /* Измените цвет текста на желаемый */
+        }
+
+        table {
+            border-collapse: collapse; /* Объединение границ ячеек */
+            width: 100%; /* Ширина таблицы по ширине контейнера */
+        }
+
+        th, td {
+            border: 1px solid #dddddd; /* Граница ячеек толщиной 1px и цветом #dddddd */
+            text-align: left; /* Выравнивание текста в ячейках по левому краю */
+            padding: 8px; /* Внутренний отступ вокруг содержимого ячеек */
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div th:insert="~{fragment :: header}"></div>
+
+<h1>JUSTINMIND</h1>
+
+<input type="button" value="Create new ticket" onclick="window.location.href='/createTicket'" />
+
+    <br><br>
+
+<div class="button-container">
+    <button onclick="showAllTickets()" class="all-ticket-button">Show All Tickets</button>
+    <button onclick="showMyTickets()" class="my-ticket-button">Show My Tickets</button>
+</div>
+
+    <br><br>
+
+<div class="table-container">
+    <div id="allTicketSection">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Desired Date</th>
+                <th>Urgency</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="ticket : ${tickets}">
+                <td th:text="${ticket.getId()}"></td>
+                <td th:text="${ticket.getName()}"></td>
+                <td th:text="${ticket.getDesired_resolution_date()}"></td>
+                <td th:text="${ticket.getUrgency()}"></td>
+                <td th:text="${ticket.getState()}"></td>
+                <td class="green-cell">
+                    <select name="action" id="action" class="full-width-select">
+                        <option th:each="action : ${actionsList}" th:text="${action}"></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="myTicketSection">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Desired Date</th>
+                <th>Urgency</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="ticket : ${myTicketsList}">
+                <td th:text="${ticket.getId()}"></td>
+                <td th:text="${ticket.getName()}"></td>
+                <td th:text="${ticket.getDesired_resolution_date()}"></td>
+                <td th:text="${ticket.getUrgency()}"></td>
+                <td th:text="${ticket.getState()}"></td>
+                <td class="green-cell">
+                    <select name="action" id="action2" class="full-width-select">
+                        <option th:each="action : ${actionsList}" th:text="${action}"></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+<!--    <div id="myTicketSection">-->
+<!--        &lt;!&ndash; Thymeleaf код для отображения списка пассажиров &ndash;&gt;-->
+<!--        <ul th:each="passenger : ${tickets}">-->
+<!--            <li th:text="${passenger.description}"></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+</div>
+
+<script th:inline="javascript">
+    function showAllTickets() {
+        document.getElementById('allTicketSection').style.display = 'block';
+        document.getElementById('myTicketSection').style.display = 'none';
+        document.querySelector('.all-ticket-button').classList.add('active-button');
+        document.querySelector('.my-ticket-button').classList.remove('active-button');
+    }
+
+    function showMyTickets() {
+        document.getElementById('allTicketSection').style.display = 'none';
+        document.getElementById('myTicketSection').style.display = 'block';
+        document.querySelector('.my-ticket-button').classList.add('active-button');
+        document.querySelector('.all-ticket-button').classList.remove('active-button');
+    }
+</script>
+
+</body>
+</html>
